@@ -15,10 +15,13 @@
         <el-table-column prop="nickName" label="用户昵称" show-overflow-tooltip/>
         <el-table-column prop="phone" label="手机号" show-overflow-tooltip/>
         <el-table-column prop="email" label="邮箱" show-overflow-tooltip/>
-        <el-table-column prop="gender" label="性别" show-overflow-/>
+        <el-table-column prop="gender" label="性别" show-overflow-tooltip>
+          <template #default="scope">
+            {{ scope.row.gender === 'MAN' ? '男' : '女' }}
+          </template>
+        </el-table-column>
         <!--        <el-table-column prop="roleSign" label="关联角色" show-overflow-tooltip></el-table-column>-->
         <el-table-column prop="department" label="部门" show-overflow-tooltip/>
-        <el-table-column prop="remark" label="用户描述" show-overflow-tooltip/>
         <el-table-column prop="status" label="用户状态" show-overflow-tooltip>
           <template #default="scope">
             <el-tag type="success" v-if="scope.row.status === 1">启用</el-tag>

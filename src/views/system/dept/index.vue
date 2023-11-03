@@ -34,12 +34,12 @@
         <el-table-column prop="createAt" label="创建时间" show-overflow-tooltip/>
         <el-table-column label="操作" show-overflow-tooltip width="140">
           <template #default="scope">
-            <Auth-Btn :value="'system:dept:add'" class="ml10" size="small" type="primary" @click="onOpenAddDept('add')"
+            <Auth-Btn :value="'system:dept:add'" class="ml10" size="small" type="success" @click="onOpenAddDept('add')"
                       title="新增" text/>
-            <Auth-Btn :value="'system:dept:update'" class="ml10" size="small" type="primary"
+            <Auth-Btn :value="'system:dept:update'" class="ml10" size="small" type="success"
                       @click="onOpenEditDept('edit', scope.row)"
                       title="修改" text/>
-            <Auth-Btn :value="'system:dept:delete'" class="ml10" size="small" type="primary"
+            <Auth-Btn :value="'system:dept:delete'" class="ml10" size="small" type="success"
                       @click="onTabelRowDel(scope.row)"
                       title="删除" text/>
           </template>

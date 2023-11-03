@@ -140,7 +140,8 @@ type ListType = {
     value: string;
 };
 
-declare interface RowDicType {
+declare interface RowDictType {
+    id: string,
     dicName: string;
     fieldName: string;
     describe: string;
@@ -149,12 +150,12 @@ declare interface RowDicType {
     list: ListType[];
 }
 
-interface SysDicTableType extends TableType {
-    data: RowDicType[];
+interface SysDictTableType extends TableType {
+    data: RowDictType[];
 }
 
-declare interface SysDicState {
-    tableData: SysDicTableType;
+declare interface SysDictState {
+    tableData: SysDictTableType;
 }
 
 /**

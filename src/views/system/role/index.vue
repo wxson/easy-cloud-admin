@@ -4,20 +4,10 @@
       <div class="system-user-search mb15">
         <el-input v-model="state.tableData.param.search" size="default" placeholder="请输入角色名称"
                   style="max-width: 180px"></el-input>
-        <el-button size="default" type="primary" class="ml10" @click="onClickFindUserEvent">
-          <el-icon>
-            <ele-Search/>
-          </el-icon>
-          查询
-        </el-button>
-        <Auth :value="'system:role:add'">
-          <el-button size="default" type="success" class="ml10" @click="onOpenAddRole('add')">
-            <el-icon>
-              <ele-FolderAdd/>
-            </el-icon>
-            新增角色
-          </el-button>
-        </Auth>
+        <Auth-Btn :value="'system:role:query'" size="default" type="primary" class="ml10"
+                  title="查询" @click="onClickFindUserEvent"/>
+        <Auth-Btn :value="'system:role:add'" size="default" type="success" class="ml10"
+                  title="新增角色" icon="FolderAdd" @click="onOpenAddRole('add')"/>
       </div>
       <el-table :data="state.tableData.data" v-loading="state.tableData.loading" style="width: 100%">
         <el-table-column type="index" label="序号" width="60"/>
