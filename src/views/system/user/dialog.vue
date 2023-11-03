@@ -5,42 +5,42 @@
         <el-row :gutter="35">
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
             <el-form-item label="名称" prop="userName">
-              <el-input v-model="state.ruleForm.userName" placeholder="请输入账户名称" clearable></el-input>
+              <el-input v-model="state.ruleForm.userName" placeholder="请输入账户名称" clearable/>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
             <el-form-item label="昵称" prop="nickName">
-              <el-input v-model="state.ruleForm.nickName" placeholder="请输入用户昵称" clearable></el-input>
+              <el-input v-model="state.ruleForm.nickName" placeholder="请输入用户昵称" clearable/>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
             <el-form-item label="密码" prop="password">
-              <el-input v-model="state.ruleForm.password" placeholder="请输入" type="password" clearable></el-input>
+              <el-input v-model="state.ruleForm.password" placeholder="请输入" type="password" clearable/>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
             <el-form-item label="手机" prop="tel">
-              <el-input v-model="state.ruleForm.tel" placeholder="请输入手机号" clearable></el-input>
+              <el-input v-model="state.ruleForm.tel" placeholder="请输入手机号" clearable/>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
             <el-form-item label="性别" prop="gender">
               <el-select v-model="state.ruleForm.gender" placeholder="请选择" clearable class="w100">
-                <el-option label="男" value="MAN"></el-option>
-                <el-option label="女" value="WOMAN"></el-option>
+                <el-option label="男" value="MAN"/>
+                <el-option label="女" value="WOMAN"/>
               </el-select>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
             <el-form-item label="邮箱" prop="email">
-              <el-input v-model="state.ruleForm.email" placeholder="请输入" clearable></el-input>
+              <el-input v-model="state.ruleForm.email" placeholder="请输入" clearable/>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
             <el-form-item label="角色" prop="roleIds">
               <el-select v-model="state.ruleForm.roleIds" placeholder="请选择" multiple clearable class="w100">
-                <el-option label="超级管理员" value="admin"></el-option>
-                <el-option label="普通用户" value="common"></el-option>
+                <el-option label="超级管理员" value="admin"/>
+                <el-option label="普通用户" value="common"/>
               </el-select>
             </el-form-item>
           </el-col>
@@ -64,7 +64,7 @@
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
             <el-form-item label="账户过期" prop="overdueTime">
               <el-date-picker v-model="state.ruleForm.overdueTime" type="date" placeholder="请选择"
-                              class="w100"></el-date-picker>
+                              class="w100"/>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
@@ -78,7 +78,7 @@
           <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24" class="mb20">
             <el-form-item label="用户描述" prop="describe">
               <el-input v-model="state.ruleForm.describe" type="textarea" placeholder="请输入用户描述"
-                        maxlength="150"></el-input>
+                        maxlength="150"/>
             </el-form-item>
           </el-col>
         </el-row>
@@ -172,35 +172,6 @@ const onSubmit = () => {
       }
     });
   }
-};
-// 初始化部门数据
-const getMenuData = () => {
-  state.deptData.push({
-    deptName: 'vueNextAdmin',
-    createTime: new Date().toLocaleString(),
-    status: true,
-    sort: Math.random(),
-    describe: '顶级部门',
-    id: Math.random(),
-    children: [
-      {
-        deptName: 'IT外包服务',
-        createTime: new Date().toLocaleString(),
-        status: true,
-        sort: Math.random(),
-        describe: '总部',
-        id: Math.random(),
-      },
-      {
-        deptName: '资本控股',
-        createTime: new Date().toLocaleString(),
-        status: true,
-        sort: Math.random(),
-        describe: '分部',
-        id: Math.random(),
-      },
-    ],
-  });
 };
 
 // 暴露变量

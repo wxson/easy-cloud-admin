@@ -33,7 +33,7 @@
             <span class="ml10">{{ $t(scope.row.title) }}</span>
           </template>
         </el-table-column>
-        <el-table-column prop="perms" label="权限标识" show-overflow-tooltip></el-table-column>
+        <el-table-column prop="perms" label="权限标识" show-overflow-tooltip/>
         <el-table-column label="组件路径" show-overflow-tooltip>
           <template #default="scope">
             <span>{{ scope.row.component }}</span>

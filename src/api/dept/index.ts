@@ -7,37 +7,37 @@ import request from '/@/utils/request';
  * @method signIn 用户登录
  * @method signOut 用户退出登录
  */
-export function useDepartmentApi() {
+export function useDeptApi() {
     return {
-        addDepartment: (data?: object) => {
+        addDept: (data?: object) => {
             return request({
-                url: '/department/save',
+                url: '/dept/save',
                 method: 'post',
                 data
             });
         },
-        updateDepartment: (data?: object) => {
+        updateDept: (data?: object) => {
             return request({
-                url: '/department/update',
+                url: '/dept/update',
                 method: 'post',
                 data
             });
         },
-        deleteDepartment: (departmentId?: string) => {
+        deleteDept: (deptId?: string) => {
             return request({
-                url: '/department/remove/' + departmentId,
+                url: '/dept/remove/' + deptId,
                 method: 'get'
             });
         },
-        departmentDetail: (departmentId?: string) => {
+        deptDetail: (deptId?: string) => {
             return request({
-                url: '/department/detail/' + departmentId,
+                url: '/dept/detail/' + deptId,
                 method: 'get'
             });
         },
-        departmentTree: (params?: object) => {
+        deptTree: (params?: object) => {
             return request({
-                url: '/department/tree',
+                url: '/dept/tree',
                 method: 'get',
                 params
             });

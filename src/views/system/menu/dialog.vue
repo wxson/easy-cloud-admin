@@ -31,23 +31,23 @@
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
             <el-form-item label="菜单名称" prop="title">
-              <el-input v-model="state.ruleForm.title" placeholder="格式：message.router.xxx" clearable></el-input>
+              <el-input v-model="state.ruleForm.title" placeholder="格式：message.router.xxx" clearable/>
             </el-form-item>
           </el-col>
           <template v-if="state.ruleForm.type === 'MENU'">
             <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
               <el-form-item label="路由名称" prop="name">
-                <el-input v-model="state.ruleForm.name" placeholder="路由中的 name 值" clearable></el-input>
+                <el-input v-model="state.ruleForm.name" placeholder="路由中的 name 值" clearable/>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
               <el-form-item label="路由路径" prop="path">
-                <el-input v-model="state.ruleForm.path" placeholder="路由中的 path 值" clearable></el-input>
+                <el-input v-model="state.ruleForm.path" placeholder="路由中的 path 值" clearable/>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
               <el-form-item label="重定向" prop="redirect">
-                <el-input v-model="state.ruleForm.redirect" placeholder="请输入路由重定向" clearable></el-input>
+                <el-input v-model="state.ruleForm.redirect" placeholder="请输入路由重定向" clearable/>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
@@ -57,7 +57,7 @@
             </el-col>
             <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
               <el-form-item label="组件路径" prop="component">
-                <el-input v-model="state.ruleForm.component" placeholder="组件路径" clearable></el-input>
+                <el-input v-model="state.ruleForm.component" placeholder="组件路径" clearable/>
               </el-form-item>
             </el-col>
             <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
@@ -73,14 +73,14 @@
             </el-col>
             <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
               <el-form-item label="权限标识" prop="perms">
-                <el-input v-model="state.ruleForm.perms" placeholder="层级：如system:menu:add" clearable></el-input>
+                <el-input v-model="state.ruleForm.perms" placeholder="层级：如system:menu:add" clearable/>
               </el-form-item>
             </el-col>
           </template>
           <template v-if="state.ruleForm.type === 'BUTTON'">
             <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
               <el-form-item label="权限标识" prop="perms">
-                <el-input v-model="state.ruleForm.perms" placeholder="层级：如system:menu:add" clearable></el-input>
+                <el-input v-model="state.ruleForm.perms" placeholder="层级：如system:menu:add" clearable/>
               </el-form-item>
             </el-col>
           </template>

@@ -5,12 +5,12 @@
         <el-row :gutter="35">
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
             <el-form-item label="角色名称" prop="name">
-              <el-input v-model="state.ruleForm.name" placeholder="请输入角色名称" clearable></el-input>
+              <el-input v-model="state.ruleForm.name" placeholder="请输入角色名称" clearable/>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
             <el-form-item label="角色标识" prop="code">
-              <el-input v-model="state.ruleForm.code" placeholder="请输入角色标识" clearable></el-input>
+              <el-input v-model="state.ruleForm.code" placeholder="请输入角色标识" clearable/>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">

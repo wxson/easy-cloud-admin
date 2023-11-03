@@ -108,11 +108,11 @@ declare interface SysUserState {
 }
 
 declare type DeptTreeType = {
-    deptName: string;
+    name: string;
     createTime: string;
     status: boolean;
     sort: number;
-    describe: string;
+    remark: string;
     id: number | string;
     children?: DeptTreeType[];
 };

@@ -21,17 +21,17 @@
       </div>
       <el-table :data="state.tableData.data" v-loading="state.tableData.loading" style="width: 100%">
         <el-table-column type="index" label="序号" width="60"/>
-        <el-table-column prop="name" label="角色名称" show-overflow-tooltip></el-table-column>
-        <el-table-column prop="code" label="角色标识" show-overflow-tooltip></el-table-column>
-        <el-table-column prop="sort" label="排序" show-overflow-tooltip></el-table-column>
+        <el-table-column prop="name" label="角色名称" show-overflow-tooltip/>
+        <el-table-column prop="code" label="角色标识" show-overflow-tooltip/>
+        <el-table-column prop="remark" label="角色描述" show-overflow-tooltip/>
+        <el-table-column prop="sort" label="排序" show-overflow-tooltip/>
         <el-table-column prop="status" label="角色状态" show-overflow-tooltip>
           <template #default="scope">
             <el-tag type="success" v-if="scope.row.status">启用</el-tag>
             <el-tag type="info" v-else>禁用</el-tag>
           </template>
         </el-table-column>
-        <el-table-column prop="remark" label="角色描述" show-overflow-tooltip></el-table-column>
-        <el-table-column prop="createAt" label="创建时间" show-overflow-tooltip></el-table-column>
+        <el-table-column prop="createAt" label="创建时间" show-overflow-tooltip/>
         <el-table-column label="操作" width="100">
           <template #default="scope">
             <Auth-Btn :value="'system:role:update'" size="default" type="success"
