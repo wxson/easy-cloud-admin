@@ -8,6 +8,8 @@ export default {
 		systemUser: '用户管理',
 		systemDept: '部门管理',
 		systemDict: '字典管理',
+		systemTenant: '租户管理',
+		systemLog: '日志管理',
 		limits: '权限管理',
 		limitsFrontEnd: '前端控制',
 		limitsFrontEndPage: '页面权限',

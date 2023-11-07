@@ -1,6 +1,6 @@
 <template>
-  <div class="system-dic-container layout-padding">
-    <el-card shadow="hover" class="layout-padding-auto">
+  <div class="system-dict-container layout-padding">
+    <div class="system-dict-padding layout-padding-auto layout-padding-view">
       <div class="system-user-search mb15">
         <el-input size="default" placeholder="请输入字典名称" style="max-width: 180px"></el-input>
         <Auth-Btn :value="'system:dict:query'" size="default" type="primary" class="ml10"
@@ -49,6 +49,7 @@
           </template>
         </el-table-column>
       </el-table>
+
       <el-pagination
           @size-change="onHandleSizeChange"
           @current-change="onHandleCurrentChange"
@@ -62,7 +63,7 @@
           :total="state.tableData.total"
       >
       </el-pagination>
-    </el-card>
+    </div>
     <DicDialog ref="dicDialogRef" @refresh="getTableData()"/>
   </div>
 </template>
@@ -150,3 +151,15 @@ onMounted(() => {
   getTableData();
 });
 </script>
+
+<style scoped lang="scss">
+.system-dict-container {
+  .system-dict-padding {
+    padding: 15px;
+
+    .el-table {
+      flex: 1;
+    }
+  }
+}
+</style>
