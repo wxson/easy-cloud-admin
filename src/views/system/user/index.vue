@@ -13,7 +13,7 @@
         <el-table-column type="index" label="序号" width="60"/>
         <el-table-column prop="userName" label="账户名称" show-overflow-tooltip/>
         <el-table-column prop="nickName" label="用户昵称" show-overflow-tooltip/>
-        <el-table-column prop="phone" label="手机号" show-overflow-tooltip/>
+        <el-table-column prop="tel" label="手机号" show-overflow-tooltip/>
         <el-table-column prop="email" label="邮箱" show-overflow-tooltip/>
         <el-table-column prop="gender" label="性别" show-overflow-tooltip>
           <template #default="scope">
@@ -21,7 +21,7 @@
           </template>
         </el-table-column>
         <!--        <el-table-column prop="roleSign" label="关联角色" show-overflow-tooltip></el-table-column>-->
-        <el-table-column prop="department" label="部门" show-overflow-tooltip/>
+<!--        <el-table-column prop="deptIds" label="部门" show-overflow-tooltip/>-->
         <el-table-column prop="status" label="用户状态" show-overflow-tooltip>
           <template #default="scope">
             <el-tag type="success" v-if="scope.row.status === 1">启用</el-tag>

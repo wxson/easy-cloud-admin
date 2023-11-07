@@ -37,25 +37,24 @@
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
-            <el-form-item label="角色" prop="roleIds">
-              <el-select v-model="state.ruleForm.roleIds" placeholder="请选择" multiple clearable class="w100">
-                <el-option label="超级管理员" value="admin"/>
-                <el-option label="普通用户" value="common"/>
+            <el-form-item label="角色" prop="roleCodes">
+              <el-select v-model="state.ruleForm.roleCodes" placeholder="请选择" multiple clearable class="w100">
+                <el-option v-for="item in state.roleData" :key="item.id" :label="item.name" :value="item.code"/>
               </el-select>
             </el-form-item>
           </el-col>
           <el-col :xs="24" :sm="12" :md="12" :lg="12" :xl="12" class="mb20">
-            <el-form-item label="部门" prop="department">
+            <el-form-item label="部门" prop="deptIds">
               <el-cascader
                   :options="state.deptData"
-                  :props="{ checkStrictly: true, value: 'deptName', label: 'deptName' }"
+                  :props="{ checkStrictly: true, value: 'id', label: 'name' }"
                   placeholder="请选择部门"
                   clearable
                   class="w100"
-                  v-model="state.ruleForm.department"
+                  v-model="state.ruleForm.deptIds"
               >
                 <template #default="{ node, data }">
-                  <span>{{ data.deptName }}</span>
+                  <span>{{ data.name }}</span>
                   <span v-if="!node.isLeaf"> ({{ data.children.length }}) </span>
                 </template>
               </el-cascader>
@@ -96,6 +95,8 @@
 <script setup lang="ts" name="systemUserDialog">
 import {nextTick, reactive, ref} from 'vue';
 import {useUserApi} from "/@/api/user";
+import {useRoleApi} from "/@/api/role";
+import {useDeptApi} from "/@/api/dept";
 
 // 定义子组件向父组件传值/事件
 const emit = defineEmits(['refresh']);
@@ -107,8 +108,8 @@ const state = reactive({
     id: undefined,
     userName: '', // 账户名称
     nickName: '', // 用户昵称
-    roleIds: [], // 关联角色
-    department: [] as string[], // 部门
+    roleCodes: [], // 关联角色
+    deptIds: [], // 部门
     tel: '', // 手机号
     email: '', // 邮箱
     gender: 'MAN', // 性别
@@ -118,6 +119,7 @@ const state = reactive({
     describe: '', // 用户描述
   },
   deptData: [] as DeptTreeType[], // 部门数据
+  roleData: [] as RowRoleType[], // 角色信息
   dialog: {
     isShowDialog: false,
     type: '',
@@ -125,6 +127,37 @@ const state = reactive({
     submitTxt: '',
   },
 });
+
+/**
+ * 获取平台角色信息
+ */
+const getRoleData = () => {
+  // 获取角色列表信息
+  useRoleApi().roleList().then(res => {
+    if (res.code === 0) {
+      // 过滤掉超级管理员角色
+      state.roleData = res.data.filter(role => role.code !== 'admin');
+    }
+  }).catch(error => {
+    console.log("获取角色信息失败：", error);
+  });
+};
+
+
+/**
+ * 获取部门信息
+ */
+const getDeptData = () => {
+  // 获取角色列表信息
+  useDeptApi().deptTree().then(res => {
+    if (res.code === 0) {
+      // 过滤掉超级管理员角色
+      state.deptData = res.data;
+    }
+  }).catch(error => {
+    console.log("获取部门信息失败：", error);
+  });
+};
 
 // 打开弹窗
 const openDialog = (type: string, row: RowUserType) => {
@@ -144,7 +177,11 @@ const openDialog = (type: string, row: RowUserType) => {
       userDialogFormRef.value.resetFields();
       state.ruleForm.id = undefined;
     }
-  })
+  });
+  // 读取角色信息
+  getRoleData();
+  // 读取部门信息
+  getDeptData();
 };
 // 关闭弹窗
 const closeDialog = () => {
@@ -157,6 +194,7 @@ const onCancel = () => {
 // 提交
 const onSubmit = () => {
   closeDialog();
+  console.log(state.ruleForm);
   // 修改
   if (state.dialog.type === 'edit') {
     useUserApi().updateUser(state.ruleForm).then(res => {

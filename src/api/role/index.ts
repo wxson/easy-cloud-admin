@@ -35,6 +35,13 @@ export function useRoleApi() {
                 method: 'get'
             });
         },
+        roleList: (params?: object) => {
+            return request({
+                url: '/role/list',
+                method: 'get',
+                params
+            });
+        },
         rolePage: (params?: object) => {
             return request({
                 url: '/role/page',

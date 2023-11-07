@@ -131,8 +131,8 @@ const onCancel = () => {
 };
 // 提交
 const onSubmit = () => {
-  closeDialog(); // 关闭弹窗
-  console.log(state.ruleForm.menuIds);
+  // 关闭弹窗
+  closeDialog();
   // 修改
   if (state.dialog.type === 'edit') {
     useRoleApi().updateRole(state.ruleForm).then(res => {
