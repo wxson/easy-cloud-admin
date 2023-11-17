@@ -107,6 +107,27 @@ declare interface SysUserState {
     tableData: SysUserTableType;
 }
 
+// tenant
+declare type RowTenantType<T = any> = {
+    id: string;
+    name: string;
+    leader: string;
+    tel: string;
+    email: string[];
+    status: string;
+    startDate: string;
+    endDate: string;
+    remark: string;
+};
+
+interface SysTenantTableType extends TableType {
+    data: RowTenantType[];
+}
+
+declare interface SysTenantState {
+    tableData: SysTenantTableType;
+}
+
 declare type DeptTreeType = {
     name: string;
     createTime: string;

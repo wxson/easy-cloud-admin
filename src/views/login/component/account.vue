@@ -87,7 +87,7 @@ const state = reactive({
   isShowPassword: false,
   ruleForm: {
     username: 'admin',
-    password: 'gykj2023',
+    password: '123456',
     scope: 'server',
     // code: '1234',
     grant_type: 'password',

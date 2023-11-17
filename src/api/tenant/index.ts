@@ -3,49 +3,43 @@ import request from '/@/utils/request';
 /**
  * （不建议写成 request.post(xxx)，因为这样 post 时，无法 params 与 data 同时传参）
  *
- * 角色api接口集合
+ * 租户api接口集合
  * @method signIn 用户登录
  * @method signOut 用户退出登录
  */
-export function usedictApi() {
+export function useTenantApi() {
     return {
-        addDict: (data?: object) => {
+        addTenant: (data?: object) => {
             return request({
-                url: '/upms/dict/save',
+                url: '/upms/tenant/save',
                 method: 'post',
                 data
             });
         },
-        updateDict: (data?: object) => {
+        updateTenant: (data?: object) => {
             return request({
-                url: '/upms/dict/update',
+                url: '/upms/tenant/update',
                 method: 'post',
                 data
             });
         },
-        deleteDict: (dictId?: string) => {
+        deleteTenant: (tenantId?: string) => {
             return request({
-                url: '/upms/dict/remove/' + dictId,
+                url: '/upms/tenant/remove/' + tenantId,
                 method: 'get'
             });
         },
-        dictDetail: (dictId?: string) => {
+        tenantDetail: (tenantId?: string) => {
             return request({
-                url: '/upms/dict/detail/' + dictId,
+                url: '/upms/tenant/detail/' + tenantId,
                 method: 'get'
             });
         },
-        dictPage: (params?: object) => {
+        tenantPage: (params?: object) => {
             return request({
-                url: '/upms/dict/page',
+                url: '/upms/tenant/page',
                 method: 'get',
                 params
-            });
-        },
-        getDictItems: (dictType?: object) => {
-            return request({
-                url: '/upms/dictItem/list/' + dictType,
-                method: 'get'
             });
         },
     };

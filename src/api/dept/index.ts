@@ -11,33 +11,33 @@ export function useDeptApi() {
     return {
         addDept: (data?: object) => {
             return request({
-                url: '/dept/save',
+                url: '/upms/dept/save',
                 method: 'post',
                 data
             });
         },
         updateDept: (data?: object) => {
             return request({
-                url: '/dept/update',
+                url: '/upms/dept/update',
                 method: 'post',
                 data
             });
         },
         deleteDept: (deptId?: string) => {
             return request({
-                url: '/dept/remove/' + deptId,
+                url: '/upms/dept/remove/' + deptId,
                 method: 'get'
             });
         },
         deptDetail: (deptId?: string) => {
             return request({
-                url: '/dept/detail/' + deptId,
+                url: '/upms/dept/detail/' + deptId,
                 method: 'get'
             });
         },
         deptTree: (params?: object) => {
             return request({
-                url: '/dept/tree',
+                url: '/upms/dept/tree',
                 method: 'get',
                 params
             });

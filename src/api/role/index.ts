@@ -11,40 +11,40 @@ export function useRoleApi() {
     return {
         addRole: (data?: object) => {
             return request({
-                url: '/role/save',
+                url: '/upms/role/save',
                 method: 'post',
                 data
             });
         },
         updateRole: (data?: object) => {
             return request({
-                url: '/role/update',
+                url: '/upms/role/update',
                 method: 'post',
                 data
             });
         },
         deleteRole: (roleId?: string) => {
             return request({
-                url: '/role/remove/' + roleId,
+                url: '/upms/role/remove/' + roleId,
                 method: 'get'
             });
         },
         roleDetail: (roleId?: string) => {
             return request({
-                url: '/role/detail/' + roleId,
+                url: '/upms/role/detail/' + roleId,
                 method: 'get'
             });
         },
         roleList: (params?: object) => {
             return request({
-                url: '/role/list',
+                url: '/upms/role/list',
                 method: 'get',
                 params
             });
         },
         rolePage: (params?: object) => {
             return request({
-                url: '/role/page',
+                url: '/upms/role/page',
                 method: 'get',
                 params
             });

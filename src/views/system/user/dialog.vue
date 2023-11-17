@@ -129,14 +129,18 @@ const state = reactive({
 });
 
 /**
+ * 需要过滤的角色信息，不支持选择
+ */
+const ignoreRoles = ["admin", "tenant"];
+/**
  * 获取平台角色信息
  */
 const getRoleData = () => {
   // 获取角色列表信息
   useRoleApi().roleList().then(res => {
     if (res.code === 0) {
-      // 过滤掉超级管理员角色
-      state.roleData = res.data.filter(role => role.code !== 'admin');
+      // 过滤掉超级管理员角色、租户角色
+      state.roleData = res.data.filter(role => !ignoreRoles.includes(role.code));
     }
   }).catch(error => {
     console.log("获取角色信息失败：", error);
@@ -194,7 +198,7 @@ const onCancel = () => {
 // 提交
 const onSubmit = () => {
   closeDialog();
-  console.log(state.ruleForm);
+  // console.log(state.ruleForm);
   // 修改
   if (state.dialog.type === 'edit') {
     useUserApi().updateUser(state.ruleForm).then(res => {

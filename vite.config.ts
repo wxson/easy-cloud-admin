@@ -29,7 +29,7 @@ const viteConfig = defineConfig((mode: ConfigEnv) => {
             hmr: true,
             proxy: {
                 '/dev': {
-                    target: 'http://localhost:9999',
+                    target: 'http://localhost:9527',
                     ws: true,
                     changeOrigin: true,
                     rewrite: (path) => path.replace(/^\/dev/, ''),

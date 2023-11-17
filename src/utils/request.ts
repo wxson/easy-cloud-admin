@@ -20,8 +20,8 @@ service.interceptors.request.use(
     (config) => {
         // 在发送请求之前做些什么 token
         if (config.url?.includes("oauth/token")) {
-            config.baseURL = '/game';
-            config.url = '/auth/oauth/token'
+            // config.baseURL = '/game';
+            // config.url = '/auth/oauth/token'
             config.headers!['Authorization'] = 'Basic Y2xpZW50OmNsaWVudA==';
         } else if (Session.get('token')) {
             config.headers!['Authorization'] = `${Session.get('token')}`;

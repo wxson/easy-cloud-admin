@@ -108,7 +108,13 @@ const openDialog = (type: string, row: RowRoleType) => {
       // 默认勾选选中数据
       useMenuApi().roleMenus(state.ruleForm.id).then(res => {
         if (res.code === 0) {
-          state.checkedKeys = res.data;
+          // 遍历设置选择项
+          res.data.forEach(menuId => {
+            let node = treeRef.value.getNode({id: menuId});
+            if (node.isLeaf) {
+              treeRef.value.setChecked(node, true);
+            }
+          });
         }
       });
     } else {
@@ -133,6 +139,7 @@ const onCancel = () => {
 const onSubmit = () => {
   // 关闭弹窗
   closeDialog();
+  // console.log(state.ruleForm)
   // 修改
   if (state.dialog.type === 'edit') {
     useRoleApi().updateRole(state.ruleForm).then(res => {

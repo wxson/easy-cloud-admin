@@ -11,39 +11,39 @@ export function useUserApi() {
     return {
         addUser: (data?: object) => {
             return request({
-                url: '/user/save',
+                url: '/upms/user/save',
                 method: 'post',
                 data
             });
         },
         updateUser: (data?: object) => {
             return request({
-                url: '/user/update',
+                url: '/upms/user/update',
                 method: 'post',
                 data
             });
         },
         deleteUser: (userId?: string) => {
             return request({
-                url: '/user/remove/' + userId,
+                url: '/upms/user/remove/' + userId,
                 method: 'get'
             });
         },
         userDetail: (userId?: string) => {
             return request({
-                url: '/user/detail/' + userId,
+                url: '/upms/user/detail/' + userId,
                 method: 'get'
             });
         },
         userBaseDetail: () => {
             return request({
-                url: '/user/base/detail',
+                url: '/upms/user/base/detail',
                 method: 'get'
             });
         },
         userPage: (params?: object) => {
             return request({
-                url: '/user/page',
+                url: '/upms/user/page',
                 method: 'get',
                 params
             });

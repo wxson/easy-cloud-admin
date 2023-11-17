@@ -14,33 +14,33 @@ export function useMenuApi() {
     return {
         addMenu: (data?: object) => {
             return request({
-                url: '/menu/save',
+                url: '/upms/menu/save',
                 method: 'post',
                 data
             });
         },
         updateMenu: (data?: object) => {
             return request({
-                url: '/menu/update',
+                url: '/upms/menu/update',
                 method: 'post',
                 data
             });
         },
         deleteMenu: (menuId?: string) => {
             return request({
-                url: '/menu/remove/' + menuId,
+                url: '/upms/menu/remove/' + menuId,
                 method: 'get'
             });
         },
         menuDetail: (menuId?: string) => {
             return request({
-                url: '/menu/detail/' + menuId,
+                url: '/upms/menu/detail/' + menuId,
                 method: 'get'
             });
         },
         menuTree: (params?: object) => {
             return request({
-                url: '/menu/tree',
+                url: '/upms/menu/tree',
                 method: 'get',
                 params
             });
@@ -51,7 +51,7 @@ export function useMenuApi() {
          */
         roleMenus: (roleId?: string) => {
             return request({
-                url: '/menu/role/' + roleId,
+                url: '/upms/menu/role/' + roleId,
                 method: 'get'
             });
         },
