@@ -33,8 +33,9 @@
 				<el-table-column prop='remark' label='字典描述' show-overflow-tooltip></el-table-column>
 				<el-table-column prop='status' label='字典状态' show-overflow-tooltip>
 					<template #default='scope'>
-						<el-tag type='success' v-if='scope.row.status'>启用</el-tag>
-						<el-tag type='info' v-else>禁用</el-tag>
+						<el-tag type="success" v-if="scope.row.status === 0">启用</el-tag>
+						<el-tag type="success" v-else-if="scope.row.status === 2">冻结</el-tag>
+						<el-tag type="info" v-else>禁用</el-tag>
 					</template>
 				</el-table-column>
 				<el-table-column prop='createAt' label='创建时间' show-overflow-tooltip></el-table-column>
