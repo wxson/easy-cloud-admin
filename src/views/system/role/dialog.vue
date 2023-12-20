@@ -92,7 +92,7 @@ const state = reactive({
 });
 
 // 打开弹窗
-const openDialog = (type: string, row: RowRoleType) => {
+const openDialog = (type: string, row: RoleEntity) => {
   state.dialog.type = type;
   state.dialog.isShowDialog = true;
   // 获取菜单数据

@@ -102,13 +102,21 @@ declare interface WheelEventType extends WheelEvent {
 	wheelDelta: number;
 }
 
+// BaseEntity
+declare interface BaseEntity {
+
+}
+
 // table 数据格式公共类型
-declare interface TableType<T = any> {
-	total: number;
-	loading: boolean;
-	param: {
-		page: number;
-		size: number;
-		[key: string]: T;
-	};
+declare interface TableType<T extends BaseEntity> {
+	tableData: {
+		total: number;
+		loading: boolean;
+		param: {
+			page: number;
+			size: number;
+			[key: string]: any;
+		};
+		data: T[]
+	}
 }

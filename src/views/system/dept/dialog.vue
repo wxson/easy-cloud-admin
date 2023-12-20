@@ -91,7 +91,7 @@ const state = reactive({
     status: true, // 部门状态
     remark: '', // 部门描述
   },
-  deptData: [] as DeptTreeType[], // 部门数据
+  deptData: [] as DeptEntity[], // 部门数据
   dialog: {
     isShowDialog: false,
     type: '',
@@ -101,7 +101,7 @@ const state = reactive({
 });
 
 // 打开弹窗
-const openDialog = (type: string, row: RowDeptType) => {
+const openDialog = (type: string, row: DeptEntity) => {
   state.dialog.type = type;
   state.dialog.isShowDialog = true;
   // 避免表单被赋值，导致表单重置不生效的错觉

@@ -118,8 +118,8 @@ const state = reactive({
     status: true, // 用户状态
     describe: '', // 用户描述
   },
-  deptData: [] as DeptTreeType[], // 部门数据
-  roleData: [] as RowRoleType[], // 角色信息
+  deptData: [] as DeptEntity[], // 部门数据
+  roleData: [] as RoleEntity[], // 角色信息
   dialog: {
     isShowDialog: false,
     type: '',
@@ -164,7 +164,7 @@ const getDeptData = () => {
 };
 
 // 打开弹窗
-const openDialog = (type: string, row: RowUserType) => {
+const openDialog = (type: string, row: UserEntity) => {
   state.dialog.type = type;
   state.dialog.isShowDialog = true;
   // 避免表单被赋值，导致表单重置不生效的错觉

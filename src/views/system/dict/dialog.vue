@@ -88,7 +88,7 @@ const state = reactive({
 });
 
 // 打开弹窗
-const openDialog = (type: string, row: RowDictType) => {
+const openDialog = (type: string, row: DictEntity) => {
 	if (type === 'edit') {
 		if (row.fieldName === 'SYS_UERINFO') {
 			row.list = [
