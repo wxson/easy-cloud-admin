@@ -10,5 +10,5 @@ declare interface DeptEntity extends BaseEntity {
 	status: boolean;
 	sort: number;
 	remark: string;
-	children?: DeptTreeType[];
+	children?: DeptEntity[];
 };
