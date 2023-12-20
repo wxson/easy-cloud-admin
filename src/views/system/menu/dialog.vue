@@ -4,14 +4,14 @@
       <el-form ref="menuDialogFormRef" :model="state.ruleForm" size="default" label-width="80px">
         <el-row :gutter="35">
           <el-col :xs="24" :sm="24" :md="24" :lg="24" :xl="24" class="mb20">
-            <el-form-item label="上级菜单" prop="parentId">
+            <el-form-item label="上级菜单" prop="parentIds">
               <el-cascader
                   :options="state.menuData"
                   :props="{ checkStrictly: true, value: 'id', label: 'title' }"
                   placeholder="请选择上级菜单"
                   clearable
                   class="w100"
-                  v-model="state.ruleForm.parentId"
+                  v-model="state.ruleForm.parentIds"
                   @change="handleCascaderChangeEvent"
               >
                 <template #default="{ node, data }">
@@ -168,7 +168,8 @@ const state = reactive({
   // 参数请参考 `/src/router/route.ts` 中的 `dynamicRoutes` 路由菜单格式
   ruleForm: {
     id: undefined, // 上级菜单
-    parentId: [], // 上级菜单
+    parentIds: [], // 上级菜单
+    parentId: '', // 上级菜单
     type: 'MENU', // 菜单类型
     name: '', // 路由名称
     component: '', // 组件路径
@@ -215,6 +216,7 @@ const openDialog = (type: string, row?: any) => {
   nextTick(() => {
     if (type === 'edit') {
       state.ruleForm = JSON.parse(JSON.stringify(row));
+      state.ruleForm.parentIds = [state.ruleForm.parentId];
       state.dialog.title = '修改菜单';
       state.dialog.submitTxt = '修 改';
     } else {
@@ -223,7 +225,8 @@ const openDialog = (type: string, row?: any) => {
       // 表单重置：将表单数据重置为初始值，重点初始值，故打开表单时，初始值不能赋值
       menuDialogFormRef.value.resetFields();
       state.ruleForm.id = undefined;
-      state.ruleForm.parentId = [];
+      state.ruleForm.parentIds = [];
+      state.ruleForm.parentId = '';
     }
   })
 };
@@ -243,9 +246,8 @@ const onCancel = () => {
 
 // 级联选择发生改变
 const handleCascaderChangeEvent = () => {
-  if (state.ruleForm.parentId) {
-    state.ruleForm.parentId = state.ruleForm.parentId[state.ruleForm.parentId.length - 1];
-  }
+  state.ruleForm.parentId = state.ruleForm.parentIds[state.ruleForm.parentIds.length - 1];
+  console.log("1231", state.ruleForm.parentId, state.ruleForm.parentIds)
 }
 // 提交
 const onSubmit = () => {
